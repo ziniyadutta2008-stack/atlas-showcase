@@ -71,6 +71,29 @@ The public production strip shows the same completion, latency, structured-outpu
 
 The full notes are in [docs/metrics.md](docs/metrics.md).
 
+## Enterprise grade
+
+These six capabilities are running. The picture states the product goals. The table says what is live.
+
+![Enterprise grade capabilities](images/enterprise-grade.png)
+
+| Capability | What is live |
+| --- | --- |
+| Scalability | The API, the agents, and the database are serverless, so capacity follows demand. This is not a measured zero-downtime guarantee. |
+| Security | Sign-in is required. Each function has its own role. The database password stays in a cloud secret store. Accounts and jobs are read for the signed-in user. There is no database row-level security policy. |
+| Monitoring | Cloud dashboards chart model invocations, token use, latency, embedding calls, agent duration, errors, and concurrency. |
+| Guardrails | A short list of prompt-injection phrases is replaced before the agent sees them. Under 30 out of 100, the Portfolio Analyst withholds the report. |
+| Explainability | The flight recorder lists the stages stored for a job. A sustainability review explains the factors behind its score. |
+| Observability | Traces are stored for the analysis agents. Judge scores are kept on the saved reports. |
+
+![Model usage](images/cloudwatch-model-usage.png)
+
+![Agent performance](images/cloudwatch-agent-performance.png)
+
+This trace view, with the account sidebar removed, shows 6 traces, 30 observations, 12.54K tokens, and $0.00 recorded cost. The Scores panel in that view is empty. The 56 / 100 judge average above comes from the saved reports, not from this panel. The recorded cost is not the cloud bill.
+
+![Traces](images/langfuse-traces.png)
+
 ## Rights
 
 © 2026 ATLAS. All rights reserved.
